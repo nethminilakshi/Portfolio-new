@@ -131,24 +131,6 @@ const Hero = ({ scrollToSection }: { scrollToSection: (section: string) => void 
                         <ChevronDown className="w-8 h-8 text-cyan-400" />
                     </button>
                 </div>
-
-                {/* Right Side - Profile Image */}
-                <div className="flex justify-center lg:justify-end">
-                    <div className="relative">
-                        <div className="w-80 h-80 mx-auto bg-gradient-to-br from-cyan-400/20 to-purple-400/20 rounded-full flex items-center justify-center overflow-hidden">
-                            <img
-                                src="/src/Assets/images/download (1).png"
-                                alt="Nethmi Nilakshi"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                        {/*<div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-purple-400/10 rounded-full animate-spin" style={{ animationDuration: '10s' }} />*/}
-
-                        {/* Floating decoration elements */}
-                        <div className="absolute -z-10 top-4 left-4 w-20 h-20 bg-cyan-400/20 rounded-full blur-xl animate-pulse"></div>
-                        <div className="absolute -z-10 bottom-4 right-4 w-16 h-16 bg-purple-500/20 rounded-full blur-xl animate-pulse delay-1000"></div>
-                    </div>
-                </div>
             </div>
         </section>
     );
