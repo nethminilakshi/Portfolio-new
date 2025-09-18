@@ -20,7 +20,6 @@ const TypingAnimation: React.FC<TypingAnimationProps> = ({
     const [isDeleting, setIsDeleting] = useState(false);
 
     useEffect(() => {
-        // Reset state when text changes
         setDisplayedText('');
         setCurrentIndex(0);
         setIsTyping(false);
@@ -113,13 +112,31 @@ const Hero = ({ scrollToSection }: { scrollToSection: (section: string) => void 
                     </div>
 
                     <div className="flex justify-center space-x-6 mb-12">
-                        <a href="mailto:nilakshinethmi48@gmail.com" className="p-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full hover:scale-110 transition-transform duration-300">
+                        <a
+                            href="mailto:nilakshinethmi48@gmail.com"
+                            className="p-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full hover:scale-110 transition-transform duration-300"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Send Email"
+                        >
                             <Mail className="w-6 h-6" />
                         </a>
-                        <a href="#" className="p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full hover:scale-110 transition-transform duration-300">
+                        <a
+                            href="http://linkedin.com/in/nethmi-nilakshi-404663343"
+                            className="p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full hover:scale-110 transition-transform duration-300"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="LinkedIn Profile"
+                        >
                             <Linkedin className="w-6 h-6" />
                         </a>
-                        <a href="#" className="p-3 bg-gradient-to-r from-pink-500 to-cyan-500 rounded-full hover:scale-110 transition-transform duration-300">
+                        <a
+                            href="https://github.com/nethminilakshi"
+                            className="p-3 bg-gradient-to-r from-pink-500 to-cyan-500 rounded-full hover:scale-110 transition-transform duration-300"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="GitHub Profile"
+                        >
                             <Github className="w-6 h-6" />
                         </a>
                     </div>
