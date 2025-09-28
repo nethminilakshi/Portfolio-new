@@ -37,21 +37,17 @@ const TypingAnimation: React.FC<TypingAnimationProps> = ({
 
         const timeout = setTimeout(() => {
             if (!isDeleting) {
-                // Typing forward
                 if (currentIndex < text.length) {
                     setDisplayedText(text.slice(0, currentIndex + 1));
                     setCurrentIndex(prev => prev + 1);
                 } else {
-                    // Finished typing, wait then start deleting
                     setTimeout(() => setIsDeleting(true), 2000);
                 }
             } else {
-                // Deleting backward
                 if (currentIndex > 0) {
                     setDisplayedText(text.slice(0, currentIndex - 1));
                     setCurrentIndex(prev => prev - 1);
                 } else {
-                    // Finished deleting, start typing again
                     setIsDeleting(false);
                 }
             }

@@ -3,10 +3,8 @@ import { MapPin, Phone, Download } from 'lucide-react';
 
 const About = () => {
     const handleDownloadCV = () => {
-        // Open CV in new window/tab for viewing and downloading
         window.open('/cv/Nethmi Nilakshi Professional CV Resume.pdf', '_blank');
 
-        // Alternative: If you want both - open and trigger download
         const newWindow = window.open('/cv/Nethmi Nilakshi Professional CV Resume.pdf', '_blank');
         setTimeout(() => {
             const link = document.createElement('a');
@@ -67,7 +65,6 @@ const About = () => {
                                 className="w-full h-full object-cover"
                             />
                         </div>
-                        {/*<div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-purple-400/10 rounded-full animate-spin" style={{ animationDuration: '10s' }} />*/}
                     </div>
                 </div>
             </div>

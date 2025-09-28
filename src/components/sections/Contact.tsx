@@ -31,7 +31,6 @@ const Contact = () => {
 
         window.location.href = `mailto:nilakshinethmi48@gmail.com?subject=${subject}&body=${body}`;
 
-        // Reset form
         setFormData({
             name: '',
             email: '',

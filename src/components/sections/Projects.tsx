@@ -9,7 +9,7 @@ interface Project {
     githubUrl?: string;
     frontendUrl?: string;
     backendUrl?: string;
-    image: string; // Project screenshot
+    image: string;
 }
 
 const Projects = () => {
@@ -50,6 +50,9 @@ const Projects = () => {
         setSelectedProject(null);
     };
 
+    // Helper function to determine if it's a mobile app
+    const isMobileApp = (category: string) => category === "Mobile";
+
     return (
         <section id="projects" className="py-20 px-6">
             <div className="max-w-7xl mx-auto">
@@ -60,11 +63,15 @@ const Projects = () => {
                     {projects.map((project, index) => (
                         <div key={index} className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg overflow-hidden hover:border-cyan-400/50 transition-all duration-300 group hover:transform hover:scale-105">
                             {/* Project Image */}
-                            <div className="relative h-48 overflow-hidden">
+                            <div className="relative h-48 overflow-hidden bg-gray-900">
                                 <img
                                     src={project.image}
                                     alt={`${project.title} screenshot`}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    className={`w-full h-full transition-transform duration-500 group-hover:scale-110 ${
+                                        isMobileApp(project.category)
+                                            ? 'object-contain bg-gradient-to-br from-gray-800 to-gray-900'
+                                            : 'object-cover'
+                                    }`}
                                     onError={(e) => {
                                         // Fallback gradient if image fails to load
                                         (e.target as HTMLImageElement).style.display = 'none';
@@ -85,7 +92,11 @@ const Projects = () => {
 
                             <div className="p-6">
                                 <div className="flex items-center justify-between mb-4">
-                                    <span className="px-3 py-1 bg-gradient-to-r from-cyan-400/20 to-purple-400/20 rounded-full text-sm text-cyan-400">
+                                    <span className={`px-3 py-1 rounded-full text-sm ${
+                                        isMobileApp(project.category)
+                                            ? 'bg-gradient-to-r from-green-400/20 to-blue-400/20 text-green-400'
+                                            : 'bg-gradient-to-r from-cyan-400/20 to-purple-400/20 text-cyan-400'
+                                    }`}>
                                         {project.category}
                                     </span>
                                     <div className="flex space-x-2">
@@ -168,11 +179,20 @@ const Projects = () => {
                         </button>
 
                         {/* Project Image */}
-                        <div className="h-64 md:h-80 overflow-hidden">
+                        <div className="h-64 md:h-80 overflow-hidden relative bg-gray-900">
                             <img
                                 src={selectedProject.image}
                                 alt={`${selectedProject.title} screenshot`}
-                                className="w-full h-full object-cover"
+                                className={`w-full h-full ${
+                                    isMobileApp(selectedProject.category)
+                                        ? 'object-contain bg-gradient-to-br from-gray-800 to-gray-900'
+                                        : 'object-cover'
+                                }`}
+                                onError={(e) => {
+                                    // Fallback gradient if image fails to load
+                                    (e.target as HTMLImageElement).style.display = 'none';
+                                    (e.target as HTMLImageElement).parentElement!.classList.add('bg-gradient-to-br', 'from-cyan-400/20', 'to-purple-400/20');
+                                }}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent" />
                         </div>
@@ -180,7 +200,11 @@ const Projects = () => {
                         {/* Project Details */}
                         <div className="p-6">
                             <div className="flex items-center justify-between mb-4">
-                                <span className="px-3 py-1 bg-gradient-to-r from-cyan-400/20 to-purple-400/20 rounded-full text-sm text-cyan-400">
+                                <span className={`px-3 py-1 rounded-full text-sm ${
+                                    isMobileApp(selectedProject.category)
+                                        ? 'bg-gradient-to-r from-green-400/20 to-blue-400/20 text-green-400'
+                                        : 'bg-gradient-to-r from-cyan-400/20 to-purple-400/20 text-cyan-400'
+                                }`}>
                                     {selectedProject.category}
                                 </span>
                                 <div className="flex space-x-2">
